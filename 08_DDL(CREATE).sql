@@ -211,7 +211,7 @@ DROP TABLE USER_USED_UK; -- 테이블 삭제
 CREATE TABLE USER_USED_UK(
     USER_NO NUMBER,
     
-		--USER_ID VARCHAR2(20) UNIQUE, -- 컬럼 레벨 제약 조건 설정(이름 X)
+--		USER_ID VARCHAR2(20) UNIQUE, -- 컬럼 레벨 제약 조건 설정(이름 X)
 
     USER_ID VARCHAR2(20) CONSTRAINT USER_ID_U UNIQUE,
     									-- CONSTRAINT 제약조건명 제약조건 종류
@@ -264,7 +264,7 @@ AND UCC.CONSTRAINT_NAME = 'USER_ID_U';
 CREATE TABLE USER_USED_UK2(
     USER_NO NUMBER,
     USER_ID VARCHAR2(20),
-    USER_PWD VARCHAR2(30) NOT NULL,
+    USER_PW VARCHAR2(30) NOT NULL,
     USER_NAME VARCHAR2(30),
     GENDER VARCHAR2(10),
     PHONE VARCHAR2(30),
@@ -289,6 +289,8 @@ VALUES(2, 'user02', 'pass01', '홍길동', '남', '010-1234-5678', 'hong123@kh.o
 
 
 SELECT * FROM USER_USED_UK2;
+
+DELETE FROM USER_USED_UK2;
 
 
 ----------------------------------------------------------------------------------------------------------------
@@ -610,7 +612,7 @@ CREATE TABLE USER_USED_CHECK(
   EMAIL VARCHAR2(50)
   
   -- 테이블 레벨 (컬럼 레벨과 작성법이 같음!)
-  --,CONSTRAINT GENDER_CHECK CHECK(GENDER IN ('남', '여'))
+  -- ,CONSTRAINT GENDER_CHECK CHECK(GENDER IN ('남', '여'))
 );
 
 INSERT INTO USER_USED_CHECK
@@ -744,4 +746,10 @@ ALTER TABLE LOCATION
 ADD CONSTRAINT NATIONAL_CODE_FK
 FOREIGN KEY(NATIONAL_CODE)
 REFERENCES NATIONAL; 
+
+
+
+
+
+
 
